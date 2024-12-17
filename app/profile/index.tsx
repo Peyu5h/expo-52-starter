@@ -132,7 +132,7 @@ export default function MyProfileScreen() {
   return (
     // <View>
 
-    <View className="flex-1 justify-center items-center p-4">
+    <View className="flex-1 justify-center bg-background items-center p-4">
       <View className="w-full  space-y-4">
         {/* Camera Permission */}
         <View className="flex-row my-2 items-center justify-between">

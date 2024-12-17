@@ -107,6 +107,7 @@ export default function FormScreen() {
 
   return (
     <ScrollView
+      className="bg-background"
       ref={scrollRef}
       contentContainerClassName="p-6 mx-auto w-full max-w-xl"
       showsVerticalScrollIndicator={false}

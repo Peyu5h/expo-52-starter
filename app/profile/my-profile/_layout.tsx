@@ -1,6 +1,7 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { useTheme } from '@react-navigation/native';
 import { withLayoutContext } from 'expo-router';
+import { getColor } from '~/lib/utils';
 
 const { Navigator } = createMaterialTopTabNavigator();
 
@@ -11,15 +12,18 @@ export default function MaterialTopTabsLayout() {
   return (
     <MaterialTopTabs
       screenOptions={{
-        tabBarActiveTintColor: colors.text,
-        tabBarInactiveTintColor: 'grey',
+        tabBarActiveTintColor: getColor('foreground'),
+        tabBarInactiveTintColor: getColor('muted-foreground'),
         tabBarLabelStyle: {
           fontSize: 14,
           textTransform: 'capitalize',
           fontWeight: 'bold',
         },
+        tabBarStyle: {
+          backgroundColor: getColor('background'),
+        },
         tabBarIndicatorStyle: {
-          backgroundColor: colors.text,
+          backgroundColor: getColor('foreground'),
         },
         tabBarScrollEnabled: true,
         tabBarItemStyle: { width: 'auto', minWidth: 100 },

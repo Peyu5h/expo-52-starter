@@ -1,13 +1,12 @@
 import { Stack } from 'expo-router';
 import { useColorScheme } from '~/lib/useColorScheme';
+import { getColor } from '~/lib/utils';
 
 export default function ProfileLayout() {
-  const { isDarkColorScheme } = useColorScheme();
-
   return (
     <Stack
       screenOptions={{
-        headerTintColor: isDarkColorScheme ? '#fff' : '#000',
+        headerTintColor: getColor('foreground'),
         animation: 'slide_from_right',
         animationDuration: 200,
         gestureDirection: 'horizontal',

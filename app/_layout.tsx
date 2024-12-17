@@ -8,26 +8,31 @@ import { cn } from '~/lib/utils';
 import { PortalHost } from '@rn-primitives/portal';
 import { ToastProvider } from '~/components/ui/toast';
 import { ThemeToggle } from '~/components/ThemeToggle';
+import { getColor } from '~/lib/utils';
 
 export default function RootLayout() {
   const { isDarkColorScheme } = useColorScheme();
 
   return (
-    <View className="flex-1 bg-background">
+    <View className={cn('flex-1 ', isDarkColorScheme ? 'dark' : '')}>
       <ToastProvider>
         <Tabs
           screenOptions={{
             headerRight: () => <ThemeToggle />,
-            tabBarActiveTintColor: isDarkColorScheme ? '#fff' : '#000',
-            tabBarInactiveTintColor: isDarkColorScheme ? '#ffffff' : '#000000',
+            tabBarActiveTintColor: getColor('foreground'),
+            tabBarInactiveTintColor: getColor('muted-foreground'),
             tabBarShowLabel: false,
             tabBarStyle: {
               elevation: 0,
               borderTopWidth: 0,
               position: 'relative',
               display: 'flex',
-              backgroundColor: isDarkColorScheme ? '#1e1e1e' : '#fefefe',
+              backgroundColor: getColor('background'),
             },
+            headerStyle: {
+              backgroundColor: getColor('background'),
+            },
+            headerTintColor: getColor('foreground'),
             tabBarItemStyle: {
               paddingVertical: 5,
             },

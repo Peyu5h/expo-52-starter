@@ -51,8 +51,8 @@ import { cn } from '~/lib/utils';
 
 export default function ExampleScreen() {
   return (
-    <View className="flex-1 p-6 justify-center gap-6">
-      <Card className="w-full max-w-lg mx-auto bg-background">
+    <View className="flex-1 p-6 justify-center gap-6 bg-background">
+      <Card className="w-full max-w-lg mx-auto ">
         <CardHeader>
           <View className="flex-row gap-3">
             <CardTitle className="pt-1">Team Members</CardTitle>
