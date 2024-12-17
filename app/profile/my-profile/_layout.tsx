@@ -29,25 +29,39 @@ export default function MaterialTopTabsLayout() {
       <MaterialTopTabs.Screen
         name="index"
         options={{
-          title: 'Profile',
+          title: 'Permissions',
         }}
       />
       <MaterialTopTabs.Screen
-        name="red"
+        name="camMic"
         options={{
-          title: 'Red',
+          title: 'Camera and mic',
         }}
       />
       <MaterialTopTabs.Screen
-        name="green"
+        name="location"
         options={{
-          title: 'Green',
+          title: 'Location',
+        }}
+      />
+
+      <MaterialTopTabs.Screen
+        name="notifications"
+        options={{
+          title: 'Notifications',
+        }}
+      />
+
+      <MaterialTopTabs.Screen
+        name="torchVibration"
+        options={{
+          title: 'Torch and vibration',
         }}
       />
       <MaterialTopTabs.Screen
-        name="purple"
+        name="bluetoothWifi"
         options={{
-          title: 'Purple',
+          title: 'Bluetooth & wifi',
         }}
       />
     </MaterialTopTabs>

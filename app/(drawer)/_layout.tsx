@@ -16,14 +16,14 @@ export default function DrawerLayout() {
       <Drawer.Screen
         name="index"
         options={{
-          title: 'Drawer Home',
+          title: 'Miscilaneous',
           drawerIcon: ({ color }) => <Ionicons name="home" size={24} color={color} />,
         }}
       />
       <Drawer.Screen
-        name="settings"
+        name="settings/index"
         options={{
-          title: 'Settings',
+          title: 'Settings Page',
           drawerIcon: ({ color }) => <Ionicons name="settings" size={24} color={color} />,
         }}
       />

@@ -7,7 +7,7 @@ export default function DrawerHomeScreen() {
   return (
     <View className="flex-1 justify-center items-center p-4">
       <Text className="text-xl font-bold mb-4">Drawer Home Screen</Text>
-      <Link href="/settings/index" asChild>
+      <Link href="/(drawer)/settings" asChild>
         <Button>
           <Text>Go to Settings</Text>
         </Button>

@@ -12,6 +12,7 @@ export default function ProfileLayout() {
         animationDuration: 200,
         gestureDirection: 'horizontal',
         gestureEnabled: true,
+        headerShown: false,
       }}
     >
       <Stack.Screen

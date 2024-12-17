@@ -3,7 +3,6 @@ import { Tabs } from 'expo-router';
 import { useColorScheme } from '~/lib/useColorScheme';
 import { Ionicons } from '@expo/vector-icons';
 import { Text } from '~/components/ui/text';
-import { ThemeToggle } from '~/components/ThemeToggle';
 import { View, Pressable } from 'react-native';
 import { cn } from '~/lib/utils';
 import { PortalHost } from '@rn-primitives/portal';
@@ -13,17 +12,19 @@ export default function RootLayout() {
   const { isDarkColorScheme } = useColorScheme();
 
   return (
-    <View className="flex-1">
+    <View className="flex-1 bg-background">
       <ToastProvider>
         <Tabs
           screenOptions={{
-            headerRight: () => <ThemeToggle />,
+            // headerRight: () => <ThemeToggle />,
             tabBarActiveTintColor: isDarkColorScheme ? '#fff' : '#000',
             tabBarInactiveTintColor: isDarkColorScheme ? '#888' : '#666',
+            tabBarShowLabel: false,
             tabBarStyle: {
               elevation: 0,
               borderTopWidth: 0,
               position: 'relative',
+              display: 'flex',
               backgroundColor: isDarkColorScheme ? '#1e1e1e' : '#fefefe',
             },
             tabBarItemStyle: {
@@ -40,7 +41,7 @@ export default function RootLayout() {
                     <View
                       className={cn(
                         'flex-1 items-center justify-center',
-                        pressed && 'bg-primary/10'
+                        pressed && 'bg-primary/20'
                       )}
                     >
                       {children}
@@ -52,13 +53,20 @@ export default function RootLayout() {
           }}
         >
           <Tabs.Screen
+            name="+not-found"
+            options={{
+              href: null,
+            }}
+          />
+
+          <Tabs.Screen
             name="index"
             options={{
-              title: 'Home',
+              title: 'UI reusables',
               tabBarIcon: ({ focused, color }) => (
                 <View style={{ alignItems: 'center' }}>
                   <View
-                    className="h-0.5 w-24 absolute -top-2 rounded-full bg-secondary-foreground"
+                    className="h-0.5 w-24 absolute -top-3.5 rounded-full bg-secondary-foreground"
                     style={{
                       opacity: focused ? 1 : 0,
                       transform: [{ scaleX: focused ? 1 : 0 }],
@@ -77,7 +85,7 @@ export default function RootLayout() {
           <Tabs.Screen
             name="profile"
             options={{
-              title: 'Profile',
+              title: 'Sensors',
               tabBarIcon: ({ focused, color }) => (
                 <Ionicons name={focused ? 'person' : 'person-outline'} size={24} color={color} />
               ),
@@ -88,15 +96,7 @@ export default function RootLayout() {
             options={{
               headerShown: false,
               tabBarIcon: ({ focused, color }) => (
-                <View
-                  className={`p-1 rounded-full ${focused ? 'bg-primary/50' : ''}`}
-                  style={{
-                    transform: [{ scale: focused ? 1.1 : 1 }],
-                    opacity: focused ? 1 : 1,
-                  }}
-                >
-                  <Ionicons name={focused ? 'menu' : 'menu-outline'} size={24} color={color} />
-                </View>
+                <Ionicons name={focused ? 'menu' : 'menu-outline'} size={24} color={color} />
               ),
               title: 'Menu',
             }}
