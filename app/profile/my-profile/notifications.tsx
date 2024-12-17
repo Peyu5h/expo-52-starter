@@ -5,6 +5,15 @@ import { Portal } from '@rn-primitives/portal';
 import * as Toast from '@rn-primitives/toast';
 import { Button } from '~/components/ui/button';
 import { useToast } from '~/components/ui/toast';
+import * as Notifications from 'expo-notifications';
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: true,
+  }),
+});
 
 export default function ToastScreen() {
   const [open, setOpen] = React.useState(false);
@@ -47,6 +56,26 @@ export default function ToastScreen() {
     };
   }, [open, seconds]);
 
+  const requestPermissions = async () => {
+    const { status } = await Notifications.requestPermissionsAsync();
+    return status === 'granted';
+  };
+
+  const sendNotification = async () => {
+    const hasPermission = await requestPermissions();
+
+    if (hasPermission) {
+      await Notifications.scheduleNotificationAsync({
+        content: {
+          title: 'New Notification!',
+          body: 'This is a test notification',
+          data: { data: 'goes here' },
+        },
+        trigger: null, // Show immediately
+      });
+    }
+  };
+
   return (
     <>
       {open && (
@@ -88,6 +117,9 @@ export default function ToastScreen() {
           }}
         >
           <Text>Show Toast</Text>
+        </Button>
+        <Button variant="outline" onPress={sendNotification}>
+          <Text>Show Notification</Text>
         </Button>
       </View>
     </>

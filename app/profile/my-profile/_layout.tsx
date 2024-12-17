@@ -27,21 +27,15 @@ export default function MaterialTopTabsLayout() {
       }}
     >
       <MaterialTopTabs.Screen
-        name="index"
-        options={{
-          title: 'Permissions',
-        }}
-      />
-      <MaterialTopTabs.Screen
         name="camMic"
         options={{
-          title: 'Camera and mic',
+          title: 'Camera',
         }}
       />
       <MaterialTopTabs.Screen
         name="location"
         options={{
-          title: 'Location',
+          title: 'Map',
         }}
       />
 
@@ -55,13 +49,19 @@ export default function MaterialTopTabsLayout() {
       <MaterialTopTabs.Screen
         name="torchVibration"
         options={{
-          title: 'Torch and vibration',
+          title: 'torchVibration',
         }}
       />
       <MaterialTopTabs.Screen
-        name="bluetoothWifi"
+        name="shareBtn"
         options={{
-          title: 'Bluetooth & wifi',
+          title: 'Share',
+        }}
+      />
+      <MaterialTopTabs.Screen
+        name="fileManager"
+        options={{
+          title: 'FileManager',
         }}
       />
     </MaterialTopTabs>

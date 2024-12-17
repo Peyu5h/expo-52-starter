@@ -7,6 +7,7 @@ import { View, Pressable } from 'react-native';
 import { cn } from '~/lib/utils';
 import { PortalHost } from '@rn-primitives/portal';
 import { ToastProvider } from '~/components/ui/toast';
+import { ThemeToggle } from '~/components/ThemeToggle';
 
 export default function RootLayout() {
   const { isDarkColorScheme } = useColorScheme();
@@ -16,9 +17,9 @@ export default function RootLayout() {
       <ToastProvider>
         <Tabs
           screenOptions={{
-            // headerRight: () => <ThemeToggle />,
+            headerRight: () => <ThemeToggle />,
             tabBarActiveTintColor: isDarkColorScheme ? '#fff' : '#000',
-            tabBarInactiveTintColor: isDarkColorScheme ? '#888' : '#666',
+            tabBarInactiveTintColor: isDarkColorScheme ? '#ffffff' : '#000000',
             tabBarShowLabel: false,
             tabBarStyle: {
               elevation: 0,

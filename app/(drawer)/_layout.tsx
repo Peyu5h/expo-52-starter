@@ -6,13 +6,7 @@ export default function DrawerLayout() {
   const { isDarkColorScheme } = useColorScheme();
 
   return (
-    <Drawer
-      screenOptions={{
-        headerTintColor: isDarkColorScheme ? '#fff' : '#000',
-        drawerActiveTintColor: isDarkColorScheme ? '#fff' : '#000',
-        drawerInactiveTintColor: isDarkColorScheme ? '#888' : '#666',
-      }}
-    >
+    <Drawer>
       <Drawer.Screen
         name="index"
         options={{

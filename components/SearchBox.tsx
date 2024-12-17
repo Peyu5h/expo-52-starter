@@ -28,7 +28,7 @@ export default function SearchBox({ onLocationSelect, MAPBOX_ACCESS_TOKEN }: Pro
     if (inputValue && inputValue !== selectedAddress) {
       timeoutId = setTimeout(() => {
         getAddress(inputValue);
-      }, 1000);
+      }, 500);
     } else {
       setToAddressList([]);
     }
